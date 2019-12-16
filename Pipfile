@@ -4,10 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 
 [packages]
 psycopg2 = "<2.8"
 django = "<=2.0"
+tweepy = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

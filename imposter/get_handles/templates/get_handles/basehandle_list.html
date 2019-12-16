@@ -2,11 +2,12 @@
 
 {% block content %}
   <h1>Base Handles</h1>
+  <a Click on a handle to see similar handles</a>
   {% if basehandle_list %}
   <ul>
     {% for base_handle in basehandle_list %}
       <li>
-        <a href="/base_handles/{{ base_handle.handle }}">{{ base_handle.handle }}</a>
+        <a href="/get_handles/base_handles/{{ base_handle.handle }}">{{ base_handle.handle }}</a>
       </li>
     {% endfor %}
   </ul>
