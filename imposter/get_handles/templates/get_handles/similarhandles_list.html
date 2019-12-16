@@ -1,15 +1,42 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Similar Handles for {{ similar_handles.base_handle }}</h1>
+  <h1>Similar Handles for {{ similarhandles_list.0.base_handle_date.handle }}</h1>
   {% if similarhandles_list %}
-  <ul>
-    {% for similar_handle in similarhandles_list %}
-      <li>
-        <a href="twitter.com/{{ similar_handle.handle }}"{{ similar_handle.handle }}</a> ({{similar_handle.suspended}}) ({{similar_handle.display_name}}) ({{similar_handle.number_of_tweets}}) ({{similar_handle.number_of_followers}}) ({{similar_handle.number_following}}) ({{similar_handle.marked_parody}}) ({{similar_handle.date_joined}}) ({{similar_handle.bio}})
-      </li>
-    {% endfor %}
-  </ul>
+  <style type="text/css" media="screen">
+    table{
+    border-collapse:collapse;
+    border:1px solid #333333;
+    }
+    
+    table td{
+    border:1px solid #333333;
+    }
+  </style>
+    <table> 
+      <tr>
+            <th>Handle</th>
+            <th>Suspended</th>
+            <th>Display Name</th>
+            <th>Number of Tweets</th>
+            <th>Number of Followers</th>
+            <th>Number Following</th>
+            <th>Date Joined</th>
+            <th>Bio</th>
+        </tr>
+        {% for similar_handle in similarhandles_list %}
+        <tr> 
+            <td><a href="https://twitter.com/{{ similar_handle.handle }}" target="_blank">{{ similar_handle.handle }}</a></td>
+            <td>{{similar_handle.suspended}}</td>
+            <td>{{similar_handle.display_name}}</td>
+            <td>{{similar_handle.number_of_tweets}}</td>
+            <td>{{similar_handle.number_of_followers}}</td>
+            <td>{{similar_handle.number_following}}</td>
+            <td>{{similar_handle.date_joined}}</td>
+            <td>{{similar_handle.bio}}</td>
+        </tr>
+        {% endfor %}
+    </table>
   {% else %}
     <p>There are no handles for which information has been collected yet.</p>
   {% endif %}       

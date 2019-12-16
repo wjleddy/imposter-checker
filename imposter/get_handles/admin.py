@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import BaseHandle, SimilarHandles
 
-# Register your models here.
+admin.site.register(BaseHandle)
+admin.site.register(SimilarHandles)
