@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Similar Handles for {{ similar_handles.base_handle }}</h1>
+  {% if similarhandles_list %}
+  <ul>
+    {% for similar_handle in similarhandles_list %}
+      <li>
+        <a href="twitter.com/{{ similar_handle.handle }}"{{ similar_handle.handle }}</a> ({{similar_handle.suspended}}) ({{similar_handle.display_name}}) ({{similar_handle.number_of_tweets}}) ({{similar_handle.number_of_followers}}) ({{similar_handle.number_following}}) ({{similar_handle.marked_parody}}) ({{similar_handle.date_joined}}) ({{similar_handle.bio}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no handles for which information has been collected yet.</p>
+  {% endif %}       
+{% endblock %}
