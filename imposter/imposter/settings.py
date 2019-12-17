@@ -25,7 +25,7 @@ SECRET_KEY = '@v9r6%al&q6s9mypv31n%qvdp9w-h4p-teanm1e&%vc=i3_uj3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'imposter-check.herokuapp.com' ]
 
 
 # Application definition
