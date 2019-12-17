@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'imposter-check.herokuapp.
 # Application definition
 
 INSTALLED_APPS = [
-    'get_handles.apps.GetHandlesConfig',
+    'get_handles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
