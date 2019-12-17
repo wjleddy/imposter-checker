@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Imposter Account Finder Home</h1>
+  <p>Welcome to the Imposter Twitter Account Finder, a web-app that finds Twitter accounts that may be impersonating prominent figures</p>
+  <p>So far we've found {{ num_similar_handles }} possible impersonators for {{ num_base_handles }} Twitter accounts. To look through handles for which we've found possible impersonators, click on "Browse Base Handles" on the left.</p>
+  <p>To see if a handle is in our database, or to collect possible imposters if it's not, search in the field below!</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+<br></br>
+<p> Please note that it can take 15-20 minutes to find similar handles, so please don't click the submit button again, work is happening, we promise!</p>
+{% endblock %}
+
