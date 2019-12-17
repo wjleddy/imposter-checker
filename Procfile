@@ -1,1 +1,1 @@
-web: gunicorn imposter.imposter.wsgi —-log-file -
+web: gunicorn imposter.wsgi —-log-file -

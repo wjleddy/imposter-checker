@@ -2,8 +2,7 @@
 
 ## Overview
 This project uses Django to create a web application that will, for any given input Twitter handle, generate active or suspended handles that are within an edit distance of one (one deletion, one insertion, one transposition or one replacement).
-It has the capability to find handles within an edit distance of two, but this leads to very long run time (and rate-limiting from the Twitter API), so I've stuck with an edit distance of one. The project was built locally with a Postgresql backend,
-And is deployed here for real use. 
+It has the capability to find handles within an edit distance of two, but this leads to very long run time (and rate-limiting from the Twitter API), so I've stuck with an edit distance of one. The project was built locally with a Postgresql backend.
 
 ## Planned Next Steps
 - Pretty up the interface, adding filtering and sorting to tables.
