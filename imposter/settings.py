@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'imposter-check.herokuapp.com']
 
@@ -82,9 +82,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME', ''),
         'USER' : os.environ.get('DB_USER', ''),
-        'PASSWORD' : os.environ.get('DB_PW', ''),
-        'HOST' : 'localhost',
-        'PORT' : '5432',
+       # 'PASSWORD' : '',
+       # 'HOST' : 'localhost',
+       # 'PORT' : '',
     }
 }
 
