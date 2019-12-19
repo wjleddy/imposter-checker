@@ -1,2 +1,2 @@
 web: gunicorn imposter.wsgi —-log-file -
-worker: celery worker --app=tasks.app
+worker: celery -A get_handles.tasks worker -B --loglevel=info
