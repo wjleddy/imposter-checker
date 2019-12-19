@@ -1,7 +1,9 @@
-from .models import SimilarHandles
+from .models import BaseHandle, SimilarHandles
 import tweepy
 import os
 import requests
+from celery import task
+
 
 # Set up API access
 auth = tweepy.OAuthHandler(os.environ.get('TWITTER_CONSUMER_KEY'), os.environ.get('TWITTER_CONSUMER_SECRET'))
@@ -23,10 +25,12 @@ def edits1(word):
 
 def edits2(word): return (e2 for e1 in edits1(word) for e2 in edits1(e1))
 
-def create_similar_handles(bh_date):
+@task
+def create_similar_handles(bh):
+    bh_date = BaseHandle.objects.get(handle=bh)
     sh = []
     for h in edits1(bh_date.handle): # In an ideal world we'd use the edits2 function, but it takes quite a long time
-        if requests.get("https://twitter.com/" + h).status_code==404:
+        if requests.get("https://twitter.com/" + h).status_code!=200:
             pass
         else:
             try:
@@ -47,4 +51,4 @@ def create_similar_handles(bh_date):
                                              suspended=True))
                 else:
                     pass
-    return sh
+    SimilarHandles.objects.bulk_create(sh)
