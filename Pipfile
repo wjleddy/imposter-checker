@@ -8,7 +8,7 @@ pytest = "*"
 
 [packages]
 psycopg2 = "<2.8"
-django = "<=2.0"
+django = "<3.0"
 tweepy = "*"
 requests = "*"
 gunicorn = "*"
